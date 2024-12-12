@@ -1,14 +1,15 @@
-const removeFromArray = function(array, value1, value2) {
-    let myArray = array;
-    let newArray = [];
-    
-    for (i = 0; i < myArray.length; i++) {
-        if (myArray[i] === value1) {
-            newArray = myArray.splice(i, 1);
-        }
-    }
+const removeFromArray = function(array, ...theArgs) {
 
-    return myArray;
+    // note to myself
+    // if I understand this correctly
+    // array of arguments has to include the value
+    // .includes returns a boolean
+    // if any of theArgs === value .includes returns true
+    // I have to make those false so it's !theArgs.includes(value)
+    // array.filter leaves only the arguments that return true
+    // all of theArgs are filtered out of the array
+    
+    return array.filter(value => !theArgs.includes(value));
 };
 
 // Do not edit below this line
